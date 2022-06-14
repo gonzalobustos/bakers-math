@@ -1,0 +1,61 @@
+// Colors
+
+$color-black: #000000;
+$color-charcoal: #464646;
+$color-concrete: #D2D1CD;
+$color-crimson: #DC143C;
+$color-kimberly: #766A88;
+$color-oxley: #6D9A78;
+$color-white: #FFFFFF;
+$color-whitesmoke: #F5F5F5;
+
+$color-dark: $color-charcoal;
+$color-error: $color-crimson;
+$color-light: $color-whitesmoke;
+$color-primary: $color-kimberly;
+$color-secondary: $color-concrete;
+$color-success: $color-oxley;
+
+// Typography
+
+$font-family-sans: 'Lato', sans-serif;
+
+$font-size-xl: 2rem;
+$font-size-lg: 1.8rem;
+$font-size-md: 1.6rem;
+$font-size-sm: 1.4rem;
+$font-size-xs: 1.2rem;
+
+$font-size-h1: 2.4rem;
+$font-size-h2: 2rem;
+$font-size-h3: 1.8rem;
+$font-size-h4: 1.6rem;
+$font-size-h5: 1.4rem;
+$font-size-h6: 1.2rem;
+
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+$line-height-lg: 2;
+$line-height-md: 1.5;
+$line-height-sm: 1.25;
+
+// Spacing
+
+$spacer-xl: 3.2rem;
+$spacer-lg: 2.4rem;
+$spacer-md: 1.6rem;
+$spacer-sm: .8rem;
+$spacer-xs: .4rem;
+
+// Breakpoints
+
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
+);

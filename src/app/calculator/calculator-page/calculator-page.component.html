@@ -1,0 +1,19 @@
+<div class="page">
+  <h1 class="page__heading">Baker's Calculator</h1>
+
+  <div class="card-group">
+    <div class="card">
+      <div class="card__body">
+        <bm-parameters-form
+          (update)="onParametersUpdate($event)"
+        ></bm-parameters-form>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card__body">
+        <bm-formula-table [formula]="(formula$ | async)!"></bm-formula-table>
+      </div>
+    </div>
+  </div>
+</div>

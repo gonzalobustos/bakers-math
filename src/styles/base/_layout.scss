@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include respond(xs) {
+    max-width: 54rem;
+  }
+
+  @include respond(sm) {
+    max-width: 72rem;
+  }
+
+  @include respond(md) {
+    max-width: 96rem;
+  }
+}
+
+.page {
+  min-height: 100vh;
+  padding: $spacer-lg 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__heading {
+    margin-bottom: $spacer-lg;
+  }
+}

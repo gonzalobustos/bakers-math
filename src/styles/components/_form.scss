@@ -1,0 +1,39 @@
+.form {
+  &__field {
+    display: grid;
+    grid-template-columns: 1fr 10rem;
+    grid-template-rows: 2.4rem auto;
+    align-items: flex-start;
+    column-gap: 1.6rem;
+
+    &:not(:last-child) {
+      margin-bottom: $spacer-md;
+    }
+
+    &.form__field--error {
+      color: $color-error;
+    }
+  }
+
+  &__control {
+    display: block;
+    width: 100%;
+    font-size: $font-size-md;
+    font-family: inherit;
+    line-height: $line-height-md;
+    background-color: rgba($color-white, .5);
+    border: 1px solid $color-secondary;
+    border-radius: 0;
+    padding: $spacer-sm;
+  }
+
+  &__feedback {
+    font-size: $font-size-sm;
+  }
+
+  &__label {
+    display: inline-block;
+    font-size: $font-size-md;
+    font-weight: $font-weight-bold;
+  }
+}

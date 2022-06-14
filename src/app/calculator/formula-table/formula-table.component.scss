@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'mixins';
+
+.table-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacer-md;
+  margin-top: $spacer-md;
+
+  @include respond(md) {
+    flex-direction: row;
+  }
+}

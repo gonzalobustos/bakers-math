@@ -1,0 +1,30 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  caption {
+    margin-bottom: $spacer-sm;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+  }
+
+  th, td {
+    border-top: 1px solid $color-secondary;
+    padding: $spacer-sm;
+    font-size: $font-size-md;
+    font-weight: $font-weight-regular;
+    text-align: left;
+  }
+
+  thead th {
+    background-color: $color-whitesmoke;
+    font-weight: $font-weight-bold;
+  }
+
+  tbody tr:last-child {
+    border-bottom: 1px solid $color-secondary
+  }
+}
+
+
+

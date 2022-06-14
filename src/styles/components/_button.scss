@@ -1,0 +1,25 @@
+.button {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    padding: $spacer-sm $spacer-md;
+    font-size: $font-size-md;
+    line-height: $line-height-md;
+    text-align: center;
+    text-decoration: none;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: $color-primary;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: $color-white;
+    cursor: pointer;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}

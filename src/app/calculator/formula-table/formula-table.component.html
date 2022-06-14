@@ -1,0 +1,102 @@
+<table class="table">
+  <caption>
+    Overall Formula
+  </caption>
+
+  <thead>
+    <tr>
+      <th scope="col">Ingredient</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Baker's %</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th scope="row">Flour</th>
+      <td>{{ formula.totalFlourWeight | number: "1.0-2" }}g</td>
+      <td>{{ formula.totalFlourRatio | percent: "1.0-1" }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Water</th>
+      <td>{{ formula.totalWaterWeight | number: "1.0-2" }}g</td>
+      <td>{{ formula.totalWaterRatio | percent: "1.0-1" }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Salt</th>
+      <td>{{ formula.saltWeight | number: "1.0-2" }}g</td>
+      <td>{{ formula.saltRatio | percent: "1.0-1" }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Total</th>
+      <td>{{ formula.totalDoughWeight | number: "1.0-2" }}g</td>
+      <td>{{ formula.totalDoughRatio | percent: "1.0-1" }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="table-group">
+  <table class="table">
+    <caption>
+      Pre-ferment
+    </caption>
+
+    <thead>
+      <tr>
+        <th scope="col">Ingredient</th>
+        <th scope="col">Weight</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Flour</th>
+        <td>{{ formula.prefermentFlourWeight | number: "1.0-2" }}g</td>
+      </tr>
+      <tr>
+        <th scope="row">Water</th>
+        <td>{{ formula.prefermentWaterWeight | number: "1.0-2" }}g</td>
+      </tr>
+      <tr>
+        <th scope="row">Starter</th>
+        <td>{{ formula.prefermentStarterWeight | number: "1.0-2" }}g</td>
+      </tr>
+      <tr>
+        <th scope="row">Total</th>
+        <td>{{ formula.totalPrefermentWeight | number: "1.0-2" }}g</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table">
+    <caption>
+      Final Dough
+    </caption>
+
+    <thead>
+      <tr>
+        <th scope="col">Ingredient</th>
+        <th scope="col">Weight</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <th scope="row">Flour</th>
+        <td>{{ formula.flourWeight | number: "1.0-2" }}g</td>
+      </tr>
+      <tr>
+        <th scope="row">Water</th>
+        <td>{{ formula.waterWeight | number: "1.0-2" }}g</td>
+      </tr>
+      <tr>
+        <th scope="row">Pre-ferment</th>
+        <td>{{ formula.totalPrefermentWeight | number: "1.0-2" }}g</td>
+      </tr>
+      <tr>
+        <th scope="row">Total</th>
+        <td>{{ formula.totalDoughWeight | number: "1.0-2" }}g</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

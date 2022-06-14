@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  height: -webkit-fill-available;
+}
+
+body {
+  background-color: $color-light;
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+[tabindex]:not([tabindex="-1"]) {
+  outline: 2px solid transparent;
+  outline-offset: 5px;
+  transition: outline-offset .1s ease-in-out;
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus:focus,
+textarea:focus,
+[tabindex]:not([tabindex="-1"]):focus {
+  outline-color: $color-primary;
+  outline-offset: 2px;
+}
+
+abbr[title] {
+  cursor: help;
+}

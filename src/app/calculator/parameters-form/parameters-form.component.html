@@ -1,0 +1,211 @@
+<form class="form" [formGroup]="form">
+  <h2>Parameters</h2>
+
+  <p>
+    <small>All fields marked with an asterisk (*) are required.</small>
+  </p>
+
+  <div
+    class="form__field"
+    [class.form__field--error]="doughWeight.touched && doughWeight.invalid"
+  >
+    <label for="dough-weight" class="form__label"
+      >Dough weight (<abbr title="Grams">g</abbr>) *</label
+    >
+
+    <input
+      type="number"
+      id="dough-weight"
+      class="form__control"
+      formControlName="doughWeight"
+      required
+      aria-describedby="dough-weight-feedback"
+      [attr.aria-invalid]="doughWeight.invalid"
+    />
+
+    <div id="dough-weight-feedback" class="form__feedback">
+      <div
+        *ngIf="doughWeight.touched && doughWeight.errors?.['required']"
+        aria-live="assertive"
+      >
+        Dough weight is required
+      </div>
+
+      <div *ngIf="!doughWeight.touched || doughWeight.valid">
+        Expected total weight of dough
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="form__field"
+    [class.form__field--error]="
+      doughHydration.touched && doughHydration.invalid
+    "
+  >
+    <label for="dough-hydration" class="form__label"
+      >Dough hydration (%) *</label
+    >
+
+    <input
+      type="number"
+      id="dough-hydration"
+      class="form__control"
+      formControlName="doughHydration"
+      required
+      aria-describedby="dough-hydration-feedback"
+      [attr.aria-invalid]="doughHydration.touched && doughHydration.invalid"
+    />
+
+    <div id="dough-hydration-feedback" class="form__feedback">
+      <div
+        *ngIf="doughHydration.touched && doughHydration.errors?.['required']"
+        aria-live="assertive"
+      >
+        Dough hydration is required
+      </div>
+
+      <div *ngIf="!doughHydration.touched || doughHydration.valid">
+        Water to flour ratio
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="form__field"
+    [class.form__field--error]="salt.touched && salt.invalid"
+  >
+    <label for="salt" class="form__label">Salt (%) *</label>
+
+    <input
+      type="number"
+      id="salt"
+      class="form__control"
+      formControlName="salt"
+      required
+      aria-describedby="salt-feedback"
+      [attr.aria-invalid]="salt.touched && salt.invalid"
+    />
+
+    <div id="salt-feedback" class="form__feedback">
+      <div
+        *ngIf="salt.touched && salt.errors?.['required']"
+        aria-live="assertive"
+      >
+        Salt is required
+      </div>
+
+      <div *ngIf="!salt.touched || salt.valid">Salt to flour ratio</div>
+    </div>
+  </div>
+
+  <div
+    class="form__field"
+    [class.form__field--error]="preferment.touched && preferment.invalid"
+  >
+    <label for="preferment" class="form__label">Pre-ferment (%) *</label>
+
+    <input
+      type="number"
+      id="preferment"
+      class="form__control"
+      formControlName="preferment"
+      required
+      aria-describedby="preferment-feedback"
+      [attr.aria-invalid]="preferment.invalid"
+    />
+
+    <div id="preferment-feedback" class="form__feedback">
+      <div
+        *ngIf="preferment.touched && preferment.errors?.['required']"
+        aria-live="assertive"
+      >
+        Pre-ferment is required
+      </div>
+
+      <div *ngIf="!preferment.touched || preferment.valid">
+        Pre-fermented flour to total flour ratio
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="form__field"
+    [class.form__field--error]="
+      prefermentHydration.touched && prefermentHydration.invalid
+    "
+  >
+    <label for="preferment-hydration" class="form__label"
+      >Pre-ferment hydration (%)</label
+    >
+
+    <input
+      type="number"
+      id="preferment-hydration"
+      class="form__control"
+      formControlName="prefermentHydration"
+      aria-describedby="preferment-hydration-feedback"
+      [attr.aria-invalid]="
+        prefermentHydration.touched && prefermentHydration.invalid
+      "
+    />
+
+    <div id="preferment-hydration-feedback" class="form__feedback">
+      <div *ngIf="!prefermentHydration.touched || prefermentHydration.valid">
+        Water to flour ratio in pre-ferment
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="form__field"
+    [class.form__field--error]="
+      prefermentFlour.touched && prefermentFlour.invalid
+    "
+  >
+    <label for="preferment-flour" class="form__label"
+      >Pre-ferment flour (%)</label
+    >
+
+    <input
+      type="number"
+      id="preferment-flour"
+      class="form__control"
+      formControlName="prefermentFlour"
+      aria-describedby="preferment-flour-feedback"
+      [attr.aria-invalid]="prefermentFlour.invalid"
+    />
+
+    <div id="preferment-flour-feedback" class="form__feedback">
+      <div *ngIf="!prefermentFlour.touched || prefermentFlour.valid">
+        Flour to starter flour ratio in pre-ferment
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="form__field"
+    [class.form__field--error]="
+      starterHydration.touched && starterHydration.invalid
+    "
+  >
+    <label for="started-hydration" class="form__label"
+      >Starter hydration (%)</label
+    >
+
+    <input
+      type="number"
+      id="starter-hydration"
+      class="form__control"
+      formControlName="starterHydration"
+      aria-describedby="starter-hydration-feedback"
+      [attr.aria-invalid]="starterHydration.touched && starterHydration.invalid"
+    />
+
+    <div id="starter-hydration-feedback" class="form__feedback">
+      <div *ngIf="!starterHydration.touched || starterHydration.valid">
+        Water to flour ratio in starter
+      </div>
+    </div>
+  </div>
+</form>
