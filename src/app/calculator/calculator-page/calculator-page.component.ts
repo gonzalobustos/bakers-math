@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { startWith } from 'rxjs';
 
-import { IParameters } from '@shared/entities';
+import { DEFAULT_FORMULA, IParameters } from '@shared/entities';
 import { CalculatorService } from '../calculator.service';
 
 @Component({
@@ -10,17 +11,17 @@ import { CalculatorService } from '../calculator.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalculatorPageComponent {
-  formula$ = this.calculator.formula$;
+  formula$ = this.calculator.formula$.pipe(startWith(DEFAULT_FORMULA));
 
   constructor(
     private calculator: CalculatorService,
   ) { }
 
-  onParametersUpdate({ parameters, valid }: { parameters: IParameters, valid: boolean }) {
-    if (valid) {
-      this.calculator.setParameters(parameters);
-    } else {
-      this.calculator.resetFormula();
-    }
+  onUpdate(parameters: IParameters) {
+    this.calculator.setParameters(parameters);
+  }
+
+  onReset() {
+    this.calculator.resetFormula();
   }
 }

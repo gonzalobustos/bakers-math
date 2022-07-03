@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { IFormula } from '@shared/entities';
+import { DEFAULT_FORMULA, IFormula } from '@shared/entities';
 
 @Component({
   selector: 'bm-formula-table',
@@ -9,5 +9,5 @@ import { IFormula } from '@shared/entities';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormulaTableComponent {
-  @Input() formula!: IFormula;
+  @Input() formula: IFormula = DEFAULT_FORMULA;
 }

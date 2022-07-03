@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, combineLatest, map } from 'rxjs';
+import { combineLatest, map, Observable, Subject } from 'rxjs';
 
 import { IFormula, IParameters, DEFAULT_PARAMETERS, DEFAULT_FORMULA } from '@shared/entities';
 
@@ -7,24 +7,24 @@ import { IFormula, IParameters, DEFAULT_PARAMETERS, DEFAULT_FORMULA } from '@sha
   providedIn: 'root'
 })
 export class CalculatorService {
-  private parameters = new BehaviorSubject<IParameters>(DEFAULT_PARAMETERS);
-  parameters$ = this.parameters.asObservable();
-
-  private reset = new BehaviorSubject<boolean>(false);
-  reset$ = this.reset.asObservable()
-
-  formula$ = combineLatest([
-    this.parameters$,
-    this.reset$
-  ]).pipe(
-    map(([parameters, reset]: [IParameters, boolean]) => this.calculateFormula(parameters, reset))
-  );
+  private parameters = new Subject<IParameters>();
+  private reset = new Subject<boolean>();
 
   constructor() { }
 
-  private calculateFormula(parameters: IParameters, reset: boolean): IFormula {
-    if (reset || parameters == DEFAULT_PARAMETERS) return DEFAULT_FORMULA;
+  get formula$(): Observable<IFormula> {
+    return combineLatest([
+    this.parameters,
+    this.reset
+  ]).pipe(
+    map(([parameters, reset]: [IParameters, boolean]) => {
+      if (reset || parameters == DEFAULT_PARAMETERS) return DEFAULT_FORMULA;
 
+      return this.calculateFormula(parameters);
+    })
+  )}
+
+  private calculateFormula(parameters: IParameters): IFormula {
     const {
       doughWeight: totalDoughWeight,
       doughHydration,
@@ -79,6 +79,7 @@ export class CalculatorService {
 
   resetFormula(): void {
     this.reset.next(true);
+    this.parameters.next(DEFAULT_PARAMETERS);
   }
 
   setParameters(parameters: IParameters): void {

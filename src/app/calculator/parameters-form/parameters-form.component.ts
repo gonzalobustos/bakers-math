@@ -11,7 +11,8 @@ import { IParameters } from '@shared/entities';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ParametersFormComponent {
-  @Output() update = new EventEmitter<{ parameters: IParameters, valid: boolean }>();
+  @Output() reset = new EventEmitter<void>();
+  @Output() update = new EventEmitter<IParameters>();
 
   form = this.formBuilder.group(
     {
@@ -33,7 +34,11 @@ export class ParametersFormComponent {
 
   ngOnInit(): void {
     this.form.valueChanges.pipe(takeUntil(this.destroyed$)).subscribe((parameters) => {
-      this.update.emit({ parameters, valid: this.form.valid });
+      if (this.form.valid) {
+        this.update.emit(parameters);
+      } else {
+        this.reset.emit();
+      }
     });
   }
 
